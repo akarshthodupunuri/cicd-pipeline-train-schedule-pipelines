@@ -1,11 +1,11 @@
 pipeline {
-    agent any
-    stages{
-        stage('build') { 
+    agents any
+    stages {
+        stage('build') {
             steps {
-            echo "building the zip arhive and running tests"
-            sh './gradlew build --no-daemon'
-            archiveArtifacts 'dist/trainSchedule.zip'
+                echo "Running build automation and creating zip archive"
+                sh './gradlew build --no-daemon'
+                archiveArtifacts 'dist/trainSchedule.zip'
             }
         }
     }
